@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Розрахунок судового збору</title>
+</head>
+<body class="body">
+    <header class="header">
+        <h1 class="header__title">Розрахунок судового збору</h1>
+    </header>
+    <main class="main container">
+        <section class="main__about">
+            <h2 class="main__title">Цей функціонал дозволяє визначити суму судового збору, який необхідно сплатити за подання заяви або скарги до суду</h2>
+            <p class="main__info">Оберіть нижче параметри і натисніть "Розрахувати", щоб визначити суму судогово збору</p>
+            <p class="main__info main__info--law">Відповідно до статті 4 Закону України "Про судовий збір" судовий збір справляється у відповідному розмірі від прожиткового мінімуму для працездатних осіб, встановленого законом на 1 січня календарного року, в якому відповідна заява або скарга подається до суду, - у відсотковому співвідношенні до ціни позову та у фіксованому розмірі.</p>
+            <p class="main__info accent">З 1 січня 2023 року прожитковий мінімум для працездатних осіб в Україні складає 2684 гривні.</p>
+        </section>
+        <section class="count">
+            <div class="count__parameters">
+                <label class="count__parameter-item">Оберіть суд:
+                    <select name="court" id="court" class="count__select court">
+                        <option value="general">Суд загальної юрисдикції</option>
+                        <option value="commercial">Господарський суд</option>
+                        <option value="admin">Адміністративний суд</option>
+                    </select>
+                </label>
+                <label class="count__parameter-item">Оберіть платника:
+                    <select name="payer" id="payer" class="count__select payer">
+                        <option value="legal-person">Юридична особа</option>
+                        <option value="individual">Фізична особа</option>
+                        <option value="business-individual">Фізична особа-підприємець</option>
+                    </select>
+                </label>
+                <label class="count__parameter-item">Оберіть документ або дію:
+                    <select name="action" id="action" class="count__select action">
+                        <option value="property">Позовна заява майнового характеру</option>
+                        <option value="non-property">Позовна заява немайнового характеру</option>
+                        <option value="proves">Заява про забезпечення доказів або позову</option>
+                        <option value="appeal">Апеляційна скарга на рішення суду</option>
+                        <option value="cassation">Касаційна скарга на рішення суду</option>
+                        <option value="resolution">Апеляційна і касаційна скарга на ухвалу суду</option>
+                    </select>
+                </label>
+                <label class="count__parameter-item claim">Введіть суму позову:
+                    <input type="number" id="claim" class="count__input">
+                </label>
+                <label class="count__parameter-item first-fee disabled">Введіть суму судового збору, сплаченого при зверненні до суду першої інстанції:
+                    <input type="number" id="first-fee" class="count__input">
+                </label>
+                <button onclick="countFee()" id="count-btn" class="count__btn">Розрахувати</button>
+            </div>
+            <div class="count__result-block">
+                <p class="result"></p>
+            </div>
+        </section>
+    </main>
+	<script src="js/main.js"></script>
+    <script src="js/generalFunctions.js"></script>
+    <script src="js/commercialFunctions.js"></script>
+    <script src="js/adminFunctions.js"></script>
+</body>
+</html>
